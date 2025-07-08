@@ -1,38 +1,104 @@
-# mobile_scanner_example
+# VeriMed App
 
-Demonstrates how to use the `mobile_scanner` plugin.
+Una aplicación Flutter para escaneo de códigos QR y códigos de barras.
 
-## Run Examples
+## Requisitos previos
 
-1. `git clone https://github.com/juliansteenbakker/mobile_scanner.git`
-2. `cd mobile_scanner/example/lib`
-3. `flutter pub get`
-4. `flutter run`
+- Flutter 3.29.2 o superior
+- Dart 3.7.0 o superior
+- Android Studio / Xcode (para desarrollo móvil)
 
-## Examples Overview
+## Configuración del proyecto
 
-### Basic
+### 1. Clonar el repositorio
+```bash
+git clone <tu-repositorio-url>
+cd verimedapp
+```
 
-A minimal example showing the simplest way to get `mobile_scanner` up and running.
+### 2. Instalar dependencias
+```bash
+flutter pub get
+```
 
-* Uses the default `MobileScanner` widget.
-* Automatically detects and displays the first barcode.
-* No controller or UI controls.
-* Ideal starting point for understanding core functionality.
+### 3. Configuración de Android
+- Asegúrate de tener Android SDK 35 instalado
+- Configura tu `local.properties` en `android/` con la ruta de tu Android SDK:
+```
+sdk.dir=C:\\Users\\TuUsuario\\AppData\\Local\\Android\\Sdk
+```
 
-### Advanced
+### 4. Configuración de iOS (solo macOS)
+```bash
+cd ios
+pod install
+cd ..
+```
 
-A complete example demonstrating all available features combined into one app.
+### 5. Ejecutar la aplicación
 
-* Uses `MobileScannerController` for full control.
-* Includes:
-    - Flashlight toggle
-    - Camera switch
-    - Start/stop scanner
-    - Zoom control
-    - Image picker from gallery
-    - Scan window overlays
-    - ListView of detected barcodes
-    - Lifecycle handling
-    - PageView integration
-* Best suited for exploring the full capabilities of the plugin.
+#### Android
+```bash
+flutter run -d android
+```
+
+#### iOS (solo macOS)
+```bash
+flutter run -d ios
+```
+
+#### Web
+```bash
+flutter run -d chrome
+```
+
+## Características
+
+- Escaneo de códigos QR
+- Escaneo de códigos de barras
+- Soporte para flash
+- Selección de imágenes de galería
+- Interfaz moderna y responsive
+
+## Permisos necesarios
+
+### Android
+- `CAMERA` - Para acceso a la cámara
+- `FLASHLIGHT` - Para control del flash
+
+### iOS
+- `NSCameraUsageDescription` - Para acceso a la cámara
+- `NSPhotoLibraryUsageDescription` - Para acceso a la galería
+
+## Estructura del proyecto
+
+```
+lib/
+├── main.dart              # Punto de entrada
+├── screens/              # Pantallas de la aplicación
+├── widgets/              # Widgets reutilizables
+└── utilities/            # Utilidades y helpers
+```
+
+## Dependencias principales
+
+- `mobile_scanner: ^7.0.1` - Escáner de códigos
+- `image_picker: ^1.1.2` - Selector de imágenes
+
+## Troubleshooting
+
+### Error de compilación en Android
+```bash
+flutter clean
+flutter pub get
+flutter run
+```
+
+### Error de pods en iOS
+```bash
+cd ios
+pod deintegrate
+pod install
+cd ..
+flutter run
+```

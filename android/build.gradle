@@ -8,6 +8,10 @@ allprojects {
 rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
+    // Configuración para suprimir warnings de Java obsoleto
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:-options"
+    }
 }
 subprojects {
     project.evaluationDependsOn(':app')
