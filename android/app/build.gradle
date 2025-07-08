@@ -42,7 +42,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.verimed.app"
-        minSdkVersion 24
+        minSdkVersion 21
         targetSdkVersion 35
         ndkVersion flutter.ndkVersion
         versionCode flutterVersionCode.toInteger()

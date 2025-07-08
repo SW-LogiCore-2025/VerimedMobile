@@ -218,14 +218,8 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple> {
     if (value == null) {
       return Column(
         children: [
-          Icon(
-            Icons.qr_code_scanner,
-            color: Colors.white,
-            size: 30,
-          ),
-          SizedBox(height: 8),
-          Text(
-            'Escanea el código QR del medicamento\no toca el icono de teclado para ingresarlo manualmente',
+          const Text(
+            'Escanea el código QR del medicamento\no ingresalo manualmente',
             overflow: TextOverflow.fade,
             style: TextStyle(
               color: Colors.white,
@@ -234,7 +228,7 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple> {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           // Indicador de estado del scanner
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -692,7 +686,8 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple> {
             children: [
               Icon(Icons.keyboard, color: Color(0xFF1976D2), size: 30),
               SizedBox(width: 10),
-              Text('Ingresar Código Manualmente'),
+
+              Text('Ingresar Código\nManualmente'),
             ],
           ),
           content: Column(
@@ -917,7 +912,7 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'VeriMed - Escáner',
+          'VeriMed',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -926,37 +921,12 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple> {
         centerTitle: true,
         backgroundColor: const Color(0xFF1976D2),
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
         actions: [
-          IconButton(
-            color: Colors.white,
-            icon: const Icon(Icons.bug_report),
-            iconSize: 24,
-            tooltip: 'Prueba con código demo',
-            onPressed: () => _verificarCodigoManual('A8BBD6037CFD'),
-          ),
           IconButton(
             color: Colors.white,
             icon: const Icon(Icons.keyboard),
             iconSize: 32,
             onPressed: _mostrarDialogoIngresarCodigo,
-          ),
-          IconButton(
-            color: Colors.white,
-            icon: const Icon(Icons.flash_on),
-            iconSize: 32,
-            onPressed: () => controller.toggleTorch(),
-          ),
-          IconButton(
-            color: Colors.white,
-            icon: const Icon(Icons.cameraswitch),
-            iconSize: 32,
-            onPressed: () => controller.switchCamera(),
           ),
         ],
       ),
