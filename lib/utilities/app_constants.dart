@@ -22,6 +22,14 @@ class AppConstants {
   static const String appTitle = 'VeriMed';
   static const String appSubtitle = 'Verifica la autenticidad de tus medicamentos';
 
+  // Configuración de red - Cambiar según el entorno
+  static const String serverHost = '192.168.18.4'; // Tu IP local
+  static const String serverPort = '8080';
+  static const String apiPath = '/api/verimed/product';
+
+  // URL completa del backend
+  static String get backendUrl => 'http://$serverHost:$serverPort$apiPath';
+
   // Colors
   static const Color primaryBlue = Color(0xFF1976D2);
   static const Color lightBlue = Color(0xFF2196F3);

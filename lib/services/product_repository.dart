@@ -1,13 +1,15 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:verimedapp/models/product.dart';
+import '../models/product.dart';
+import '../utilities/app_constants.dart';
 
 abstract class ProductRepository {
   Future<Product> getProductBySerial(String serialNumber);
 }
 
 class ApiProductRepository implements ProductRepository {
-  static const String _baseUrl = 'http://localhost:8080/api/verimed/product';
+  // Usar la configuración centralizada
+  static String get _baseUrl => AppConstants.backendUrl;
 
   @override
   Future<Product> getProductBySerial(String serialNumber) async {
