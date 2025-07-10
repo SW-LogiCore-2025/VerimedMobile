@@ -5,11 +5,9 @@
 *.swp
 .DS_Store
 .atom/
-.build/
 .buildlog/
 .history
 .svn/
-.swiftpm/
 migrate_working_dir/
 
 # IntelliJ related
@@ -45,41 +43,75 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Android specific - AGREGADOS
-/android/app/build/
-/android/build/
-/android/.gradle/
-/android/local.properties
-/android/captures/
-/android/gradlew
-/android/gradlew.bat
-/android/gradle/wrapper/gradle-wrapper.jar
+# iOS/XCode related
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/*sync/
+**/ios/**/.sconsign.dblite
+**/ios/**/.tags*
+**/ios/**/.vagrant/
+**/ios/**/DerivedData/
+**/ios/**/Icon?
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/profile
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
 
-# iOS specific - AGREGADOS
-/ios/Pods/
-/ios/.symlinks/
-/ios/Flutter/flutter_export_environment.sh
-/ios/Runner.xcworkspace/xcuserdata/
-/ios/Runner.xcodeproj/xcuserdata/
-/ios/Runner.xcodeproj/project.xcworkspace/xcuserdata/
-/ios/Flutter/ephemeral/
-/ios/Runner/GeneratedPluginRegistrant.*
-
-# macOS specific - AGREGADOS
-/macos/Pods/
-/macos/.symlinks/
-/macos/Flutter/ephemeral/
-/macos/Runner.xcworkspace/xcuserdata/
-/macos/Runner.xcodeproj/xcuserdata/
-/macos/Runner.xcodeproj/project.xcworkspace/xcuserdata/
-
-# Web specific
-/web/build/
+# macOS
+**/macos/Flutter/GeneratedPluginRegistrant.swift
 
 # Coverage
 coverage/
 
-# Exceptions to above rules - ARCHIVOS QUE SÍ SE DEBEN INCLUIR
-!/android/gradle/wrapper/gradle-wrapper.properties
-!/android/gradlew
-!/android/gradlew.bat
+# Web related
+lib/generated_plugin_registrant.dart
+
+# Windows
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugin_registrant.h
+
+# Exceptions to above rules.
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
+# Local configuration files
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Firebase
+google-services.json
+GoogleService-Info.plist
+
+# API Keys and sensitive data
+lib/config/api_keys.dart
+android/key.properties
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# Platform specific build files
+android/app/src/main/res/values/strings.xml
+
+# Temporary files
+tmp/
+temp/
