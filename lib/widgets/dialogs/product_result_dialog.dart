@@ -32,7 +32,14 @@ class ProductResultDialog extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildProductHeader(),
+        // Name y Description en línea vertical
+        _buildNameAndDescription(),
+        const SizedBox(height: 12),
+        // Imagen centrada
+        _buildCenteredImage(),
+        const SizedBox(height: 12),
+        // Información compacta debajo de la imagen
+        _buildCompactProductInfo(),
         // Fechas importantes
         if (product.manufactureDate != null || product.expirationDate != null) ...[
           const SizedBox(height: 12),
@@ -43,35 +50,45 @@ class ProductResultDialog extends StatelessWidget {
           const SizedBox(height: 12),
           _buildCompositionInfo(),
         ],
-        const SizedBox(height: 12),
       ],
     );
   }
 
-  Widget _buildProductHeader() {
-    return Row(
+  Widget _buildNameAndDescription() {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MedicineImageWidget(imageUrl: product.image),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (product.name != null) ...[
-                Text(product.name!, style: AppTextStyles.productName),
-                const SizedBox(height: 4),
-              ],
-              if (product.description != null) ...[
-                Text(product.description!, style: AppTextStyles.productDescription),
-                const SizedBox(height: 8),
-              ],
-              // Información importante al lado derecho debajo de la descripción
-              _buildCompactProductInfo(),
-            ],
+        // Name arriba
+        if (product.name != null) ...[
+          Text(
+            product.name!,
+            style: AppTextStyles.productName,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
           ),
-        ),
+        ],
+        // Espaciado si ambos existen
+        if (product.name != null && product.description != null)
+          const SizedBox(height: 8),
+        // Description debajo
+        if (product.description != null) ...[
+          Text(
+            product.description!,
+            style: AppTextStyles.productDescription,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 3,
+          ),
+        ],
       ],
+    );
+  }
+
+  Widget _buildCenteredImage() {
+    return Center(
+      child: MedicineImageWidget(
+        imageUrl: product.image,
+        size: 200, // Imagen un poco más grande al estar centrada
+      ),
     );
   }
 
