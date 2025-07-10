@@ -7,7 +7,7 @@ abstract class ProductRepository {
 }
 
 class ApiProductRepository implements ProductRepository {
-  static const String _baseUrl = 'http://localhost:8080/api/verimed/product';
+  static const String _baseUrl = 'https://verimedbackend-qb5x.onrender.com/api/verimed/product';
 
   @override
   Future<Product> getProductBySerial(String serialNumber) async {
